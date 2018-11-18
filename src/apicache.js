@@ -249,6 +249,9 @@ function ApiCache() {
 
   function syncOptions() {
     for (var i in middlewareOptions) {
+      if (!middlewareOptions[i].options) {
+        middlewareOptions[i].options = {};
+      }
       Object.assign(middlewareOptions[i].options, globalOptions, middlewareOptions[i].localOptions)
     }
   }
